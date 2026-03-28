@@ -14,5 +14,11 @@
         "messagesHourlyLimit": 40,
         "spamChannelsThreshold": 4,
         "cacheExpirationHours": 12
+    },
+    "publishing": {
+        "publish_keywords": [],
+        "allowed_roles": [],
+        "log_channel_id": "",
+        "blacklisted_channels": []
     }
 }

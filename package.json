@@ -18,7 +18,9 @@
     "node-fetch": "^2.6.1",
     "p-queue": "^6.6.2",
     "url-regex-safe": "^2.0.2",
-    "utf-8-validate": "^5.0.4"
+    "utf-8-validate": "^5.0.4",
+    "@discordjs/rest": "^0.1.0-canary.0",
+    "discord-api-types": "^0.22.0"
   },
   "devDependencies": {
     "eslint": "^7.20.0"

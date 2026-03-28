@@ -21,7 +21,7 @@ async function crosspost(message) {
 		},
 	)
 		.then(res => res.json())
-		.then(json => {
+		.then(async json => {
 			if (json.code) {
 				Util.debugLog(channel, `${json.message} (Code: ${json.code})`);
 			}
@@ -32,6 +32,15 @@ async function crosspost(message) {
 			}
 			else {
 				logger.debug(`Published ${message.id} in ${String.channel(channel)} - ${String.guild(message.guild)}`);
+
+				// Logging to dedicated channel
+				const { publishing } = require('../config.json');
+				if (publishing.log_channel_id) {
+					const logChannel = await bot.channels.fetch(publishing.log_channel_id).catch(() => null);
+					if (logChannel) {
+						logChannel.send(`✅ **Published Message**\n**Channel:** ${message.channel}\n**Author:** ${message.author}\n**Link:** ${message.url}`);
+					}
+				}
 				return;
 			}
 		});
